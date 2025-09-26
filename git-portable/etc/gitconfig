@@ -17,4 +17,4 @@
 	process = git-lfs filter-process
 	required = true
 [credential]
-	helper = helper-selector
+	helper = !\"C:/Users/Administrator/Desktop/New Project/aruba-3com-manager/git-portable/mingw64/libexec/git-core/git-credential-wincred.exe\"
