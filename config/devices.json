@@ -1,0 +1,71 @@
+{
+  "devices": {
+    "aruba_ap_1": {
+      "name": "Aruba AP 500 - Office",
+      "type": "aruba_ap500",
+      "ip": "192.168.1.10",
+      "snmp_community": "public",
+      "ssh_username": "admin",
+      "ssh_password": "admin123",
+      "location": "Main Office",
+      "enabled": true,
+      "description": "Primary office access point"
+    },
+    "aruba_ap_2": {
+      "name": "Aruba AP 500 - Conference Room",
+      "type": "aruba_ap500",
+      "ip": "192.168.1.11",
+      "snmp_community": "public",
+      "ssh_username": "admin",
+      "ssh_password": "admin123",
+      "location": "Conference Room",
+      "enabled": true,
+      "description": "Conference room access point"
+    },
+    "3com_switch_1": {
+      "name": "3Com Switch - Main",
+      "type": "3com_switch",
+      "ip": "192.168.1.20",
+      "snmp_community": "public",
+      "ssh_username": "admin",
+      "ssh_password": "admin123",
+      "location": "Server Room",
+      "enabled": true,
+      "description": "Main distribution switch"
+    }
+  },
+  "discovery": {
+    "enabled": true,
+    "networks": [
+      "192.168.1.0/24",
+      "10.0.0.0/24"
+    ],
+    "scan_ports": [22, 161, 443, 80],
+    "timeout": 5,
+    "concurrent_scans": 20
+  },
+  "monitoring": {
+    "enabled": true,
+    "collection_interval": 30,
+    "retention_days": 30,
+    "alert_thresholds": {
+      "cpu_usage": 80,
+      "memory_usage": 85,
+      "temperature": 60,
+      "offline_timeout": 300
+    }
+  },
+  "web_interface": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": false,
+    "auto_refresh_interval": 30
+  },
+  "backup": {
+    "enabled": true,
+    "backup_directory": "./backups",
+    "retention_count": 10,
+    "auto_backup": true,
+    "backup_interval": "daily"
+  }
+}
